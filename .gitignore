@@ -1,0 +1,7 @@
+.venv/
+.vscode/
+.coverage
+*.log
+dist/
+.data/
+.DS_Store

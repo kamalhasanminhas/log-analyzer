@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel", "hatchling"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "log-analyzer"
+version = "0.1.0"
+description = "A command-line tool for analyzing log files"
+readme = "README.md"
+authors = [
+    {name = "Kamal Hasan Minhas", email = "kamal_hasan@epam.com"}
+]
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.10.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black>=23.0",
+    "flake8>=6.0",
+    "mypy>=1.0",
+    "pre-commit>=3.0"
+]
+
+[tool.setuptools.packages.find]
+where = ["log_analyzer"]
+
+[tool.scripts]
+log-analyzer = "log_analyzer.cli:main"
+
+[tool.flake8]
+max-line-length = 88
+exclude = [".env", "__pycache__", "venv"]
+
+[tool.black]
+line-length = 88
+target-version = ['py311']
+
+[tool.mypy]
+python_version = 3.11
+files = ["log_analyzer"]
